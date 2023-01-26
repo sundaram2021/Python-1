@@ -9,15 +9,16 @@ def permute(nums: list[int]) -> list[list[int]]:
     """
     result = []
     if len(nums) == 1:
-        return [nums.copy()]
+        return [nums]
     for _ in range(len(nums)):
         n = nums.pop(0)
         permutations = permute(nums)
         for perm in permutations:
             perm.append(n)
         result.extend(permutations)
-        nums.append(n)
+        nums.append(n)  # <-- add this line
     return result
+
 
 
 if __name__ == "__main__":
